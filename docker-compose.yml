@@ -33,7 +33,7 @@ services:
     container_name: wgandamneziawg-easy
     volumes:
       - etc_wireguard:/etc/wireguard
-      # - /path/your/certs:/etc/wireguard/certs:ro # где /path/your/certs - путь до папки на Вашем хосте, где будет развернут сVPN-сервер с Вашими сертификатами для https
+      # - /path/your/certs:/etc/wireguard/certs:ro # где /path/your/certs - путь до папки на Вашем хосте, где будет развернут VPN-сервер с Вашими сертификатами для https
     ports:
       - "51820:51820/udp" # Если вы изменили переменную WG_PORT, не забудьте здесь указать это значение
       - "51821:51821/tcp" # Если вы изменили переменную PORT, не забудьте здесь указать это значение
