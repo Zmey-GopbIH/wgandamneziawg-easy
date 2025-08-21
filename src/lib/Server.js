@@ -86,10 +86,6 @@ module.exports = class Server {
       secret: crypto.randomBytes(256).toString('hex'),
       resave: true,
       saveUninitialized: true,
-      cookie: {
-        secure: PROTOCOL.toLowerCase() === 'https', // Устанавливаем secure в зависимости от протокола
-        sameSite: 'lax', // Дополнительная защита от CSRF
-      },
     })));
 
     const router = createRouter();
