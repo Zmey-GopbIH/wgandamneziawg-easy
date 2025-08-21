@@ -88,7 +88,7 @@ module.exports = class Server {
       saveUninitialized: true,
       cookie: {
         secure: PROTOCOL.toLowerCase() === 'https', // Устанавливаем secure в зависимости от протокола
-        sameSite: 'strict', // Дополнительная защита от CSRF
+        sameSite: 'lax', // Дополнительная защита от CSRF
       },
     })));
 
