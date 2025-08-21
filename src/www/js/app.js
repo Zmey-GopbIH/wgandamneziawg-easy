@@ -545,7 +545,7 @@ new Vue({
     this.api.getSession()
       .then((session) => {
         this.authenticated = session.authenticated;
-        this.requiresPassword = session.requiresPassword;
+        this.requiresAuth = session.requiresAuth;
         this.refresh({
           updateCharts: this.updateCharts,
         }).catch((err) => {
