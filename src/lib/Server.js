@@ -95,6 +95,14 @@ module.exports = class Server {
     const router = createRouter();
     app.use(router);
 
+    app.use(defineEventHandler((event) => {
+      setHeader(event, 'X-Content-Type-Options', 'nosniff');
+      setHeader(event, 'X-Frame-Options', 'DENY');
+      if (PROTOCOL.toLowerCase() === 'https') {
+        setHeader(event, 'Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+      }
+    }));
+
     router
       .get('/api/lang', defineEventHandler((event) => {
         setHeader(event, 'Content-Type', 'application/json');
