@@ -260,8 +260,8 @@ module.exports = class Server {
             message: 'Invalid AmneziaWG parameters',
           });
         }
-        await WireGuard.createClient({ name, type, Jc, Jmin, Jmax, expiresAt });
-        return { success: true };
+        const client = await WireGuard.createClient({ name, type, Jc, Jmin, Jmax, expiresAt });
+        return { success: true, client_id: client.id };
       }))
       .delete('/api/wireguard/client/:clientId', defineEventHandler(async (event) => {
         const clientId = getRouterParam(event, 'clientId');
